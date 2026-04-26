@@ -13,13 +13,19 @@ class ConfigManager(
 
     fun message(path: String): String {
         val prefix = plugin.config.getString("messages.prefix") ?: ""
-        val raw = plugin.config.getString("messages.$path") ?: "&c메시지 설정 없음: messages.$path"
+        val raw = plugin.config.getString("messages.$path")
+            ?: "&c메시지 설정 없음: messages.$path"
         return MessageUtil.color(raw.replace("%prefix%", prefix))
     }
 
     fun messageWithPrefix(path: String): String {
         val prefix = plugin.config.getString("messages.prefix") ?: ""
-        val raw = plugin.config.getString("messages.$path") ?: "&c메시지 설정 없음: messages.$path"
+        val raw = plugin.config.getString("messages.$path")
+            ?: "&c메시지 설정 없음: messages.$path"
         return MessageUtil.color(prefix + raw)
+    }
+
+    fun allowSelfWhisper(): Boolean {
+        return plugin.config.getBoolean("settings.allow-self-whisper", false)
     }
 }

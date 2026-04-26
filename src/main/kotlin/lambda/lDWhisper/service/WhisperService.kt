@@ -15,7 +15,9 @@ class WhisperService(
     private val replyTargets = mutableMapOf<UUID, UUID>()
 
     fun sendWhisper(sender: Player, receiver: Player, message: String) {
-        if (sender.uniqueId == receiver.uniqueId) {
+
+        // 🔥 자기 자신 귓속말 설정 체크
+        if (sender.uniqueId == receiver.uniqueId && !configManager.allowSelfWhisper()) {
             sendSafe(sender, configManager.messageWithPrefix("cannot-send-self"))
             return
         }

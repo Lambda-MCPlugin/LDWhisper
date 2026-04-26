@@ -1,3 +1,6 @@
+settings:
+  allow-self-whisper: false
+
 messages:
   prefix: "&8[&b귓속말&8] "
 
