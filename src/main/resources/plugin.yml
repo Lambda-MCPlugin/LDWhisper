@@ -1,0 +1,30 @@
+name: LDWhisper
+version: '$version'
+
+main: lambda.lDWhisper.LDWhisper
+api-version: '1.21.11'
+load: POSTWORLD
+
+folia-supported: true
+
+commands:
+  귓속말:
+    description: 플레이어에게 귓속말을 보냅니다.
+    usage: /귓속말 [플레이어] [할말]
+    aliases:
+      - w
+      - msg
+      - tell
+
+  답장:
+    description: 마지막으로 귓속말한 플레이어에게 답장합니다.
+    usage: /답장 [할말]
+    aliases:
+      - r
+      - reply
+
+  귓속말관리:
+    description: LDWhisper 관리 명령어입니다.
+    usage: /귓속말관리 리로드
+    permission: ldwhisper.admin
+    permission-message: "&c권한이 없습니다."
